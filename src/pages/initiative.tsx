@@ -3,7 +3,7 @@ import { MouseEvent, useEffect, useState } from "react";
 
 import { RandomizerBox } from "@/components/Elements/RandomizerBox";
 import { Container } from "@/components/Elements/Container";
-import { Input, MaskedInput } from "@/components/Elements/Input";
+import { DefaultInput } from "@/components/Elements/Input";
 import * as Table from "@/components/Elements/Table";
 import { Button } from "@/components/Elements/Button";
 import { ErrorMessage } from "@/components/Elements/ErrorMessage";
@@ -143,23 +143,14 @@ export default function InitiativeTracker() {
                   {inputList.map((input) => {
                     return (
                       <Table.Data key={input.name}>
-                        {input.mask ? (
-                          <MaskedInput
-                            name={input.name}
-                            onChange={updateData}
-                            placeholder={input.placeholder}
-                            value={data[input.name] || ""}
-                            mask={input.mask}
-                            maskPlaceholder={null}
-                          />
-                        ) : (
-                          <Input
-                            name={input.name}
-                            onChange={updateData}
-                            placeholder={input.placeholder}
-                            value={data[input.name] || ""}
-                          />
-                        )}
+                        <DefaultInput
+                          placeholder={input.placeholder}
+                          name={input.name}
+                          onChange={updateData}
+                          value={data[input.name] || ""}
+                          mask={input.mask}
+                          maskPlaceholder={null}
+                        />
                       </Table.Data>
                     );
                   })}
@@ -174,35 +165,26 @@ export default function InitiativeTracker() {
                 </Table.Row>
                 {error && <ErrorMessage>{error}</ErrorMessage>}
 
+                {charactersList?.length > 0 && (
+                  <hr style={{ margin: "15px 0" }} />
+                )}
+
                 {charactersList.map((character, index) => {
                   return (
                     <>
-                      <hr style={{ margin: "15px 0" }} />
-
                       <Table.Row key={character.key}>
                         {inputList.map((input, i) => (
                           <Table.Data key={i}>
-                            {input.mask ? (
-                              <MaskedInput
-                                type="text"
-                                name={input.name}
-                                onChange={(e) =>
-                                  handleCharacterEdit(e, index, input.name)
-                                }
-                                value={character[input.name]}
-                                mask={input.mask}
-                                maskPlaceholder={null}
-                              />
-                            ) : (
-                              <Input
-                                type="text"
-                                name={input.name}
-                                onChange={(e) =>
-                                  handleCharacterEdit(e, index, input.name)
-                                }
-                                value={character[input.name]}
-                              />
-                            )}
+                            <DefaultInput
+                              type="text"
+                              name={input.name}
+                              onChange={(e) =>
+                                handleCharacterEdit(e, index, input.name)
+                              }
+                              value={character[input.name]}
+                              mask={input.mask}
+                              maskPlaceholder={null}
+                            />
                           </Table.Data>
                         ))}
                         <Table.Data minWidth="80px">
