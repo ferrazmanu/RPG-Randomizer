@@ -13,6 +13,13 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
 
+  #__next{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100dvh;
+  }
+
   body {
     color:#fff;
     background-color: #111;
@@ -35,7 +42,6 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 80vh;
     padding-bottom: 50px;
   }
 

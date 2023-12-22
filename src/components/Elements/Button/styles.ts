@@ -12,7 +12,7 @@ export const Button = styled.button<Props>`
   height: 30px;
   border: 1px solid #fff;
   font-weight: 600;
-  background-color: transparent;
+  background-color: ${(props) => (props.color ? props.color : `transparent`)};
   color: #fff;
   border-radius: 5px;
   cursor: pointer;

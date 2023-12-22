@@ -11,23 +11,22 @@ export const Table = styled.table`
   display: flex;
   flex-direction: column;
   gap: 20px;
-
-  .form-container {
-    display: flex;
-    gap: 10px;
-  }
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
 `;
 
 export const Header = styled.thead`
   width: 100%;
   display: flex;
   gap: 20px;
+
+  td {
+    font-size: 20px;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    td {
+      font-size: 18px;
+    }
+  }
 `;
 
 export const Body = styled.tbody`
@@ -51,10 +50,9 @@ export const Row = styled.tr`
 export const Data = styled.td<DataProps>`
   display: flex;
   gap: 10px;
-  min-width: ${(props) => (props.minWidth ? props.minWidth : `fit-content`)};
+  min-width: ${(props) => (props.minWidth ? props.minWidth : `auto`)};
   width: ${(props) => (props.minWidth ? "auto" : `100%`)};
   max-width: ${COLUMNWITH};
-  font-size: 22px;
 
   button {
     height: 100%;

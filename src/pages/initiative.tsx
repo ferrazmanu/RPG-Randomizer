@@ -164,49 +164,57 @@ export default function InitiativeTracker() {
                     );
                   })}
                   <Table.Data minWidth="80px">
-                    <Button text="Add" type="submit" onClick={handleSubmit} />
+                    <Button
+                      text="Add"
+                      type="submit"
+                      color="#272727"
+                      onClick={handleSubmit}
+                    />
                   </Table.Data>
                 </Table.Row>
                 {error && <ErrorMessage>{error}</ErrorMessage>}
 
-                <hr style={{ margin: "15px 0" }} />
-
                 {charactersList.map((character, index) => {
                   return (
-                    <Table.Row key={character.key}>
-                      {inputList.map((input, i) => (
-                        <Table.Data key={i}>
-                          {input.mask ? (
-                            <MaskedInput
-                              type="text"
-                              name={input.name}
-                              onChange={(e) =>
-                                handleCharacterEdit(e, index, input.name)
-                              }
-                              value={character[input.name]}
-                              mask={input.mask}
-                              maskPlaceholder={null}
-                            />
-                          ) : (
-                            <Input
-                              type="text"
-                              name={input.name}
-                              onChange={(e) =>
-                                handleCharacterEdit(e, index, input.name)
-                              }
-                              value={character[input.name]}
-                            />
-                          )}
+                    <>
+                      <hr style={{ margin: "15px 0" }} />
+
+                      <Table.Row key={character.key}>
+                        {inputList.map((input, i) => (
+                          <Table.Data key={i}>
+                            {input.mask ? (
+                              <MaskedInput
+                                type="text"
+                                name={input.name}
+                                onChange={(e) =>
+                                  handleCharacterEdit(e, index, input.name)
+                                }
+                                value={character[input.name]}
+                                mask={input.mask}
+                                maskPlaceholder={null}
+                              />
+                            ) : (
+                              <Input
+                                type="text"
+                                name={input.name}
+                                onChange={(e) =>
+                                  handleCharacterEdit(e, index, input.name)
+                                }
+                                value={character[input.name]}
+                              />
+                            )}
+                          </Table.Data>
+                        ))}
+                        <Table.Data minWidth="80px">
+                          <Button
+                            text="Remove"
+                            type="submit"
+                            color="#272727"
+                            onClick={() => removeData(`${character.key}`)}
+                          />
                         </Table.Data>
-                      ))}
-                      <Table.Data minWidth="80px">
-                        <Button
-                          text="Remove"
-                          type="submit"
-                          onClick={() => removeData(`${character.key}`)}
-                        />
-                      </Table.Data>
-                    </Table.Row>
+                      </Table.Row>
+                    </>
                   );
                 })}
               </Table.Body>

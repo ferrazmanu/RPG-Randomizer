@@ -8,6 +8,7 @@ interface Props {
   maxWidth?: string;
   margin?: string;
   type?: "button" | "reset" | "submit" | undefined;
+  color?: string;
 }
 
 export const Button = (props: Props) => {
@@ -17,6 +18,7 @@ export const Button = (props: Props) => {
       maxWidth={props.maxWidth}
       margin={props.margin}
       type={props.type}
+      color={props.color}
     >
       {props.text}
     </S.Button>
