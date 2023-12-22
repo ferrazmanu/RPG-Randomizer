@@ -22,7 +22,7 @@ export default function PlotHooks() {
   return (
     <>
       <Head>
-        <title> Plot Hooks | RPG Tools</title>
+        <title> Plot Hooks | Dungeon Tools</title>
         <meta name="description" content="Randomizador de surto de caos" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

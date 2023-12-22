@@ -116,7 +116,7 @@ export default function InitiativeTracker() {
   return (
     <>
       <Head>
-        <title> Initiative Tracker | RPG Tools</title>
+        <title> Initiative Tracker | Dungeon Tools</title>
         <meta name="description" content="Rastreador de iniciativa" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

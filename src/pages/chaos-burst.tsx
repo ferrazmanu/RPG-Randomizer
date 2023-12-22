@@ -21,7 +21,7 @@ export default function ChaosBurst() {
   return (
     <>
       <Head>
-        <title> Chaos Burst | RPG Tools</title>
+        <title> Chaos Burst | Dungeon Tools</title>
         <meta name="description" content="Randomizador de surto de caos" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Home | RPG Tools</title>
+        <title>Home | Dungeon Tools</title>
         <meta name="description" content="Tools for RPG" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/assets/static/favicon.ico" />
@@ -13,7 +13,7 @@ export default function Home() {
 
       <Container>
         <main>
-          <h1>RPG Tools!</h1>
+          <h1>Dungeon Tools!</h1>
         </main>
       </Container>
     </>
