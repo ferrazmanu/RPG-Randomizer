@@ -13,7 +13,13 @@ export default function Home() {
 
       <Container>
         <main>
-          <h1>Dungeon Tools!</h1>
+          <div className="presentation">
+            <h1>Dungeon Tools!</h1>
+            <h3>
+              A few Dungeons and Dragons based tools that you can use in your
+              games!
+            </h3>
+          </div>
         </main>
       </Container>
     </>

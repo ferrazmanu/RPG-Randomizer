@@ -45,6 +45,14 @@ const GlobalStyle = createGlobalStyle`
     padding-bottom: 50px;
   }
 
+  .presentation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px
+  }
+
 `;
 
 export default GlobalStyle;
