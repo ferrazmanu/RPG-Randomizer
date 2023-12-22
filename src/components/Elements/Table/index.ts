@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-const COLUMNWITH = "315px";
-
 interface DataProps {
   minWidth?: string;
 }
@@ -39,12 +37,7 @@ export const Body = styled.tbody`
 export const Row = styled.tr`
   width: 100%;
   display: flex;
-  gap: 20px;
-
-  li {
-    width: 100%;
-    max-width: ${COLUMNWITH};
-  }
+  gap: 2vw;
 `;
 
 export const Data = styled.td<DataProps>`
@@ -52,7 +45,6 @@ export const Data = styled.td<DataProps>`
   gap: 10px;
   min-width: ${(props) => (props.minWidth ? props.minWidth : `auto`)};
   width: ${(props) => (props.minWidth ? "auto" : `100%`)};
-  max-width: ${COLUMNWITH};
 
   button {
     height: 100%;

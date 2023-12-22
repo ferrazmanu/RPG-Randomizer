@@ -6,6 +6,7 @@ interface Props {
 
 export const InputStyles = styled.div<Props>`
   border-bottom: 1px solid #fff;
+  width: 100%;
 
   input {
     background-color: transparent;
