@@ -5,10 +5,11 @@ import { data } from "../data/chaos-burst";
 
 import { RandomizerBox } from "@/components/Elements/RandomizerBox";
 import { Container } from "@/components/Elements/Container";
+import { Button } from "@/components/Elements/Button";
 
 import * as S from "@/styles/shared-styles";
 
-export default function Home() {
+export default function ChaosBurst() {
   const [activePhrase, setActivePhrase] = useState(0);
 
   const phrases = data;
@@ -20,7 +21,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title> Chaos Burst | RPG Randomizer</title>
+        <title> Chaos Burst | RPG Tools</title>
         <meta name="description" content="Randomizador de surto de caos" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
@@ -32,7 +33,7 @@ export default function Home() {
             <div className="phrase" key={activePhrase}>
               {phrases[activePhrase]}
             </div>
-            <button onClick={randomPhrase}>Change</button>
+            <Button margin="0 auto" onClick={randomPhrase} text="Change" />
           </RandomizerBox>
 
           <S.Rules>

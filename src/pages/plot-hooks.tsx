@@ -8,8 +8,9 @@ import { Container } from "@/components/Elements/Container";
 
 import * as S from "../styles/shared-styles";
 import Link from "next/link";
+import { Button } from "@/components/Elements/Button";
 
-export default function Home() {
+export default function PlotHooks() {
   const [activePhrase, setActivePhrase] = useState(0);
 
   const phrases = data;
@@ -21,7 +22,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title> Plot Hooks | RPG Randomizer</title>
+        <title> Plot Hooks | RPG Tools</title>
         <meta name="description" content="Randomizador de surto de caos" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
@@ -33,7 +34,7 @@ export default function Home() {
             <div className="phrase" key={activePhrase}>
               {phrases[activePhrase]}
             </div>
-            <button onClick={randomPhrase}>Change</button>
+            <Button margin="0 auto" onClick={randomPhrase} text="Change" />
           </RandomizerBox>
 
           <S.Rules>

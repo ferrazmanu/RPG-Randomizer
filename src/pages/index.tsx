@@ -1,19 +1,19 @@
 import { Container } from "@/components/Elements/Container";
-import { Header } from "@/components/Shared/Header";
 import Head from "next/head";
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Home | RPG Randomizer</title>
-        <meta name="description" content="Randomizador de atividades de RPG" />
+        <title>Home | RPG Tools</title>
+        <meta name="description" content="Tools for RPG" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/assets/static/favicon.ico" />
       </Head>
 
       <Container>
         <main>
-          <h1>RPG Randomizer!</h1>
+          <h1>RPG Tools!</h1>
         </main>
       </Container>
     </>

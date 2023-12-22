@@ -39,18 +39,6 @@ const GlobalStyle = createGlobalStyle`
     padding-bottom: 50px;
   }
 
-  button{
-    max-width: 130px;
-    width: 100%;
-    margin:0 auto;
-    height: 30px;
-    border: 1px solid #fff;
-    font-weight: 600;
-    background-color: transparent;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-  }
 `;
 
 export default GlobalStyle;

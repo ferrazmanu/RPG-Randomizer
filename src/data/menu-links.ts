@@ -10,8 +10,13 @@ export const menuLinks = [
     slug: "/chaos-burst",
   },
   {
-    id: 1,
+    id: 2,
     title: "Plot Hooks",
     slug: "/plot-hooks",
+  },
+  {
+    id: 3,
+    title: "Initiative Tracker",
+    slug: "/initiative",
   },
 ];
