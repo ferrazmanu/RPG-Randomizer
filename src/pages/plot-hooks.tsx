@@ -1,14 +1,14 @@
-import Head from "next/head";
-import { useState } from "react";
+import Head from 'next/head';
+import { useState } from 'react';
 
-import { data } from "../data/plot-hooks";
+import { data } from '../data/plot-hooks';
 
-import { RandomizerBox } from "@/components/Elements/RandomizerBox";
-import { Container } from "@/components/Elements/Container";
+import { RandomizerBox } from '@/components/Elements/RandomizerBox';
+import { Container } from '@/components/Elements/Container';
 
-import * as S from "../styles/shared-styles";
-import Link from "next/link";
-import { Button } from "@/components/Elements/Button";
+import * as S from '../styles/shared-styles';
+import Link from 'next/link';
+import { Button } from '@/components/Elements/Button';
 
 export default function PlotHooks() {
   const [activePhrase, setActivePhrase] = useState(0);
@@ -25,6 +25,7 @@ export default function PlotHooks() {
         <title> Plot Hooks | Dungeon Tools</title>
         <meta name="description" content="Randomizador de surto de caos" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/assets/static/favicon.ico" />
       </Head>
 
       <main>
@@ -41,17 +42,14 @@ export default function PlotHooks() {
             <ul>
               <li>
                 <p>
-                  This list was posted and created by a reddit user called
-                  famoushippopotamus, available at:
+                  This list was posted and created by a reddit user called famoushippopotamus, available at:
                   <Link
-                    href={
-                      "https://www.reddit.com/r/DnDBehindTheScreen/comments/bwtqod/120_urban_hooks/"
-                    }
+                    href={'https://www.reddit.com/r/DnDBehindTheScreen/comments/bwtqod/120_urban_hooks/'}
                     target="_blank"
                   >
-                    {" "}
+                    {' '}
                     link
-                  </Link>{" "}
+                  </Link>{' '}
                   on 09/08/2023
                 </p>
               </li>

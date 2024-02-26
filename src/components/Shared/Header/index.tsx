@@ -1,7 +1,7 @@
-import Link from "next/link";
-import * as S from "./styles";
-import { menuLinks } from "@/data/menu-links";
-import { Container } from "@/components/Elements/Container";
+import Link from 'next/link';
+import * as S from './styles';
+import { menuLinks } from '@/data/menu-links';
+import { Container } from '@/components/Elements/Container';
 
 export const Header = () => {
   return (

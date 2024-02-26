@@ -1,13 +1,12 @@
-import { Container } from "@/components/Elements/Container";
-import * as S from "./styles";
-import { MouseEventHandler } from "react";
+import * as S from './styles';
+import { MouseEventHandler } from 'react';
 
 interface Props {
   text?: string;
   onClick?: MouseEventHandler<HTMLAnchorElement | HTMLButtonElement>;
   maxWidth?: string;
   margin?: string;
-  type?: "button" | "reset" | "submit" | undefined;
+  type?: 'button' | 'reset' | 'submit' | undefined;
   color?: string;
 }
 

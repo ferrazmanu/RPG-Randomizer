@@ -1,12 +1,12 @@
-import Head from "next/head";
-import { MouseEvent, useEffect, useState } from "react";
+import Head from 'next/head';
+import { ChangeEvent, useState } from 'react';
 
-import { RandomizerBox } from "@/components/Elements/RandomizerBox";
-import { Container } from "@/components/Elements/Container";
-import { DefaultInput } from "@/components/Elements/Input";
-import * as Table from "@/components/Elements/Table";
-import { Button } from "@/components/Elements/Button";
-import { ErrorMessage } from "@/components/Elements/ErrorMessage";
+import { RandomizerBox } from '@/components/Elements/RandomizerBox';
+import { Container } from '@/components/Elements/Container';
+import { DefaultInput } from '@/components/Elements/Input';
+import * as Table from '@/components/Elements/Table';
+import { Button } from '@/components/Elements/Button';
+import { ErrorMessage } from '@/components/Elements/ErrorMessage';
 
 interface CharacterProps {
   initiative: number;
@@ -18,16 +18,16 @@ interface CharacterProps {
 
 export default function InitiativeTracker() {
   const [charactersList, setCharactersList] = useState<CharacterProps[]>([]);
-  const [error, setError] = useState<string>("");
+  const [error, setError] = useState<string>('');
   const [data, setData] = useState<CharacterProps>({
     initiative: 0,
-    name: "",
+    name: '',
     hp: 0,
     ac: 0,
-    key: "",
+    key: '',
   });
 
-  const updateData = (e: any) => {
+  const updateData = (e: ChangeEvent<HTMLInputElement>) => {
     setData({
       ...data,
       key: e.target.name,
@@ -37,27 +37,27 @@ export default function InitiativeTracker() {
 
   const inputList = [
     {
-      placeholder: "Initiative",
-      name: "initiative",
-      mask: "9999",
+      placeholder: 'Initiative',
+      name: 'initiative',
+      mask: '9999',
     },
     {
-      placeholder: "Name",
-      name: "name",
+      placeholder: 'Name',
+      name: 'name',
     },
     {
-      placeholder: "HP",
-      name: "hp",
-      mask: "999999",
+      placeholder: 'HP',
+      name: 'hp',
+      mask: '999999',
     },
     {
-      placeholder: "AC",
-      name: "ac",
-      mask: "9999",
+      placeholder: 'AC',
+      name: 'ac',
+      mask: '9999',
     },
   ];
 
-  const handleCharacterEdit = (e: any, index: number, propertyName: string) => {
+  const handleCharacterEdit = (e: ChangeEvent<HTMLInputElement>, index: number, propertyName: string) => {
     const updatedList = charactersList.map((character, i) => {
       if (i === index) {
         return {
@@ -68,49 +68,39 @@ export default function InitiativeTracker() {
       return character;
     });
 
-    const sortedList = [...updatedList].sort(
-      (a, b) => b.initiative - a.initiative
-    );
+    const sortedList = [...updatedList].sort((a, b) => b.initiative - a.initiative);
     setCharactersList(sortedList);
   };
 
   const handleSubmit = () => {
-    setError("");
+    setError('');
 
     const newCharacter: CharacterProps = {
       initiative: data.initiative || 0,
-      name: data.name || "",
+      name: data.name || '',
       hp: data.hp || 0,
       ac: data.ac || 0,
       key: `${data.name}${data.ac}`,
     };
 
-    if (
-      newCharacter.initiative === 0 ||
-      newCharacter.ac === 0 ||
-      newCharacter.name === ""
-    ) {
-      setError("Please, add a value before continuing.");
-    } else if (
-      charactersList.find((character) => character.key === newCharacter.key)
-    ) {
-      setError("This character is already listed!");
+    if (newCharacter.initiative === 0 || newCharacter.ac === 0 || newCharacter.name === '') {
+      setError('Please, add a value before continuing.');
+    } else if (charactersList.find((character) => character.key === newCharacter.key)) {
+      setError('This character is already listed!');
     } else {
       const newList = [...charactersList, newCharacter];
-      const sortedList = [...newList].sort(
-        (a, b) => b.initiative - a.initiative
-      );
+      const sortedList = [...newList].sort((a, b) => b.initiative - a.initiative);
       setCharactersList(sortedList);
     }
 
-    setData({ initiative: 0, name: "", hp: 0, ac: 0, key: "" });
+    setData({ initiative: 0, name: '', hp: 0, ac: 0, key: '' });
   };
 
   const removeData = (id: string) => {
     const cleanList = charactersList.filter((item) => item.key !== id);
 
     setCharactersList(cleanList);
-    setError("");
+    setError('');
   };
 
   return (
@@ -119,6 +109,7 @@ export default function InitiativeTracker() {
         <title> Initiative Tracker | Dungeon Tools</title>
         <meta name="description" content="Rastreador de iniciativa" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/assets/static/favicon.ico" />
       </Head>
 
       <main>
@@ -129,11 +120,7 @@ export default function InitiativeTracker() {
               <Table.Header>
                 <Table.Row>
                   {inputList.map((list) => {
-                    return (
-                      <Table.Data key={list.placeholder}>
-                        {list.placeholder}
-                      </Table.Data>
-                    );
+                    return <Table.Data key={list.placeholder}>{list.placeholder}</Table.Data>;
                   })}
                   <Table.Data minWidth="80px">&nbsp;</Table.Data>
                 </Table.Row>
@@ -147,7 +134,7 @@ export default function InitiativeTracker() {
                           placeholder={input.placeholder}
                           name={input.name}
                           onChange={updateData}
-                          value={data[input.name] || ""}
+                          value={data[input.name] || ''}
                           mask={input.mask}
                           maskPlaceholder={null}
                         />
@@ -155,19 +142,12 @@ export default function InitiativeTracker() {
                     );
                   })}
                   <Table.Data minWidth="80px">
-                    <Button
-                      text="Add"
-                      type="submit"
-                      color="#272727"
-                      onClick={handleSubmit}
-                    />
+                    <Button text="Add" type="submit" color="#272727" onClick={handleSubmit} />
                   </Table.Data>
                 </Table.Row>
                 {error && <ErrorMessage>{error}</ErrorMessage>}
 
-                {charactersList?.length > 0 && (
-                  <hr style={{ margin: "15px 0" }} />
-                )}
+                {charactersList?.length > 0 && <hr style={{ margin: '15px 0' }} />}
 
                 {charactersList.map((character, index) => {
                   return (
@@ -178,9 +158,7 @@ export default function InitiativeTracker() {
                             <DefaultInput
                               type="text"
                               name={input.name}
-                              onChange={(e) =>
-                                handleCharacterEdit(e, index, input.name)
-                              }
+                              onChange={(e) => handleCharacterEdit(e, index, input.name)}
                               value={character[input.name]}
                               mask={input.mask}
                               maskPlaceholder={null}

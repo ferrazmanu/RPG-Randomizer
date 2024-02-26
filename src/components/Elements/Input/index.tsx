@@ -1,26 +1,19 @@
-import { InputStyles } from "./styles";
-import ReactInputMask from "react-input-mask";
+import { ChangeEvent } from 'react';
+import { InputStyles } from './styles';
+import ReactInputMask from 'react-input-mask';
 
 interface InputProps {
   name: string;
   value: string | number;
   type?: string;
-  onChange: (e: any) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   mask?: string;
   maskPlaceholder?: string | null | undefined;
   placeholder?: string;
   borderBottom?: boolean;
 }
 
-export function DefaultInput({
-  name,
-  onChange,
-  type,
-  value,
-  mask,
-  maskPlaceholder,
-  placeholder,
-}: InputProps) {
+export function DefaultInput({ name, onChange, type, value, mask, maskPlaceholder, placeholder }: InputProps) {
   return (
     <InputStyles>
       {mask ? (
@@ -34,13 +27,7 @@ export function DefaultInput({
           placeholder={placeholder}
         />
       ) : (
-        <input
-          type={type}
-          name={name}
-          onChange={onChange}
-          value={value}
-          placeholder={placeholder}
-        />
+        <input type={type} name={name} onChange={onChange} value={value} placeholder={placeholder} />
       )}
     </InputStyles>
   );
